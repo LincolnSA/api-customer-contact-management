@@ -23,23 +23,23 @@ services:
     networks:
       - network
     restart: always
-  # api:
-  #   image: api
-  #   container_name: api
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
-  #   expose:
-  #     - 3000
-  #   ports:
-  #     - "3000:3000"
-  #   env_file:
-  #     - ./.env
-  #   networks:
-  #     - network
-  #   depends_on:
-  #     - postgres
-  #     - redis
+  api:
+    image: api
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    networks:
+      - network
+    depends_on:
+      - postgres
+      - redis
 
 volumes:
   postgres:
